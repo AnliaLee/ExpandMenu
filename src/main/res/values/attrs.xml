@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--注意这里的name要和自定义View的名称一致，不然在xml布局中无法引用-->
+    <declare-styleable name="HorizontalExpandMenu">
+        <attr name="back_color" format="color"></attr>
+        <attr name="stroke_size" format="dimension"></attr>
+        <attr name="stroke_color" format="color"></attr>
+        <attr name="corner_radius" format="dimension"></attr>
+        <attr name="button_style">
+            <enum name="right" value="0"/>
+            <enum name="left" value="1"/>
+        </attr>
+        <attr name="button_icon_size" format="dimension"></attr>
+        <attr name="button_icon_stroke_width" format="dimension"></attr>
+        <attr name="button_icon_color" format="color"></attr>
+        <attr name="expand_time" format="integer"></attr>
+    </declare-styleable>
+</resources>
