@@ -1,2 +1,206 @@
-# ExpandMenu
-可展开收起的菜单栏
+# Android可展开收起的菜单栏
+
+#### [水平菜单栏HorizontalExpandMenu](https://github.com/AnliaLee/ExpandMenu/blob/master/src/main/java/com/anlia/expandmenu/widget/HorizontalExpandMenu.java)
+
+* 教程博客：[Android自定义View——从零开始实现可展开收起的水平菜单栏](http://www.jianshu.com/p/045da19ca6ea)
+* 简介：继承**ViewGroup（RelativeLayout）**实现**可展开收起的水平菜单栏**控件
+* 自定义属性：
+
+| 属性名称|含义|属性类型|
+|:-|:-|:-|
+|back_color|菜单栏背景颜色|color|
+|stroke_size|菜单栏边框粗细|dimension|
+|stroke_color|菜单栏边框颜色|color|
+|corner_radius|菜单栏边框圆角半径|dimension|
+|button_style|按钮类型（居左或右）|left \| right|
+|button_icon_size|按钮icon大小|dimension|
+|button_icon_stroke_width|按钮icon粗细|dimension|
+|button_icon_color|按钮icon颜色|color|
+|expand_time|菜单栏展开收起动画时长（毫秒）|integer|
+
+* 效果展示：
+
+![](http://upload-images.jianshu.io/upload_images/4909537-27daec2155f08f68.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+* 示例布局：
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:text="默认菜单栏样式"/>
+        <com.anlia.expandmenu.widget.HorizontalExpandMenu
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:clickable="true">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="item1"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="item2"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="item3"/>
+            </LinearLayout>
+        </com.anlia.expandmenu.widget.HorizontalExpandMenu>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:text="按钮在左侧"/>
+        <com.anlia.expandmenu.widget.HorizontalExpandMenu
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            app:button_style="left">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:clickable="true">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="item1"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="item2"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="item3"/>
+            </LinearLayout>
+        </com.anlia.expandmenu.widget.HorizontalExpandMenu>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:text="可设置圆角、描边、阴影、按钮的颜色等等"/>
+        <com.anlia.expandmenu.widget.HorizontalExpandMenu
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:elevation="2dp"
+            app:corner_radius="10dp"
+            app:button_icon_color="@color/red"
+            app:stroke_color="@color/red">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:clickable="true">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="item1"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="item2"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="item3"/>
+            </LinearLayout>
+        </com.anlia.expandmenu.widget.HorizontalExpandMenu>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:text="可自定义菜单栏里的内容，但只能设置一个直接子元素"/>
+        <com.anlia.expandmenu.widget.HorizontalExpandMenu
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:scrollbars="none">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:clickable="true">
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@color/blue"
+                        android:text="item1"/>
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@color/yellow"
+                        android:text="item2"/>
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@color/green"
+                        android:text="item3"/>
+                    <TextView
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@color/red"
+                        android:text="item4"/>
+                </LinearLayout>
+            </HorizontalScrollView>
+        </com.anlia.expandmenu.widget.HorizontalExpandMenu>
+    </LinearLayout>
+</RelativeLayout>
+```
+
+***
