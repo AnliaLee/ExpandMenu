@@ -197,11 +197,13 @@ public class HorizontalExpandMenu extends RelativeLayout {
         if(isAnimEnd){//防止出现动画结束后菜单栏位置大小测量错误的bug
             if(buttonStyle == Right){
                 if(!isExpand){
-                    layout((int)(menuRight - buttonRadius *2-backPathWidth),getTop(), menuRight,getBottom());
+//                    layout((int)(menuRight - buttonRadius *2-backPathWidth),getTop(), menuRight,getBottom());
+                    layout((menuRight - buttonRadius *2),getTop(), menuRight,getBottom());
                 }
             }else {
                 if(!isExpand){
-                    layout(menuLeft,getTop(),(int)(menuLeft + buttonRadius *2+backPathWidth),getBottom());
+//                    layout(menuLeft,getTop(),(int)(menuLeft + buttonRadius *2+backPathWidth),getBottom());
+                    layout(menuLeft,getTop(),(menuLeft + buttonRadius *2),getBottom());
                 }
             }
         }
