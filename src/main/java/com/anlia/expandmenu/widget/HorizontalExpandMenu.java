@@ -94,7 +94,6 @@ public class HorizontalExpandMenu extends RelativeLayout {
 
     private void init(){
         TypedArray typedArray = mContext.obtainStyledAttributes(mAttrs, R.styleable.HorizontalExpandMenu);
-
         defaultWidth = DpOrPxUtils.dip2px(mContext,200);
         defaultHeight = DpOrPxUtils.dip2px(mContext,40);
 
@@ -110,6 +109,7 @@ public class HorizontalExpandMenu extends RelativeLayout {
         buttonIconColor = typedArray.getColor(R.styleable.HorizontalExpandMenu_button_icon_color,Color.GRAY);
 
         expandAnimTime = typedArray.getInteger(R.styleable.HorizontalExpandMenu_expand_time,400);
+        typedArray.recycle();
 
         isFirstLayout = true;
         isExpand = true;
